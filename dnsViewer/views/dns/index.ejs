@@ -1,0 +1,11 @@
+<html>
+ dns requests
+ <table>
+  <% for(var i=0; i<dnses.length; i++) {%>
+   <tr>
+     <td>[<%= dnses[i].address.address %>]</td>
+     <td><%= dnses[i].question.name %></td>
+   </tr>
+ <% } %>
+</table>
+</html>
