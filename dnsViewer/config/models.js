@@ -28,5 +28,6 @@ module.exports.models = {
   *                                                                          *
   ***************************************************************************/
   migrate: 'safe',
-  sails.config.models.migrate: 'safe'
+  connection: 'mongodb'
+
 };

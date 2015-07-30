@@ -8,7 +8,7 @@
 module.exports = {
   index: function (req, res) {
 
-    Dns.find()
+   Dns.find()
    // .limit(3)
    // .sort('createdAt desc')
    // .where({ isPublished: 1 })

@@ -3,7 +3,7 @@ module.exports.adapters = {
 
   mongo: {
     module: 'sails-mongo',
-    host: 'mongodb',
+    host: 'vps',
     port: 27017,
     // user: 'username',
     // password: 'password',

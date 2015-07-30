@@ -1,9 +1,9 @@
 <html>
- dns requests
+ dns requests (<%= dnses.length %> items)
  <table>
   <% for(var i=0; i<dnses.length; i++) {%>
    <tr>
-     <td>[<%= dnses[i].address.address %>]</td>
+     <td>[<%= dnses[i].address.address %>]</td> <!= address.address =>
      <td><%= dnses[i].question.name %></td>
    </tr>
  <% } %>
