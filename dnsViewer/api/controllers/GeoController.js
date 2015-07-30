@@ -1,12 +1,12 @@
 /**
- * DnsController
+ * GeoController
  *
  * @description :: Server-side logic for managing dns
  * @help    :: See http://links.sailsjs.org/docs/controllers
  */
 
 module.exports = {
-  index: function (req, res) {
+  data: function (req, res) {
 
    Geo.find()
    // .limit(3)
@@ -35,6 +35,11 @@ module.exports = {
           res.send({ "type": "FeatureCollection", "features": features });
        }
     });  
-  }
+  },
+
+ index: function (req, res) {
+   res.view(); 
+ }
+
 };
 

@@ -1,13 +1,39 @@
+<!doctype html>
 <html>
- geo requests (<%= geos.length %> items)
- <table>
-  <% for(var i=0; i<geos.length; i++) {%>
-   <% if( typeof geos[i].content.lat != 'undefined' ) {  %> 
-   <tr>
-     <td><%= geos[i].content.lat %></td>
-     <td><%= geos[i].content.lng %></td>
-   </tr>
-   <% } %>
- <% } %>
-</table>
+<head>
+  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.css" />
+  <!--[if lte IE 8]>
+     <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.ie.css" />
+  <![endif]-->
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    html, body, #cupcake-map {
+      height: 100%;
+    }
+
+  </style>
+  <script src="http://cdn.leafletjs.com/leaflet-0.7.2/leaflet.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
+</head>
+<body>
+  <div id="cupcake-map"></div>
+  <script>
+  var cupcakeTiles = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 18 });
+
+  $.getJSON("geo/data", function(data) {
+    var geojson = L.geoJson(data, {
+      onEachFeature: function (feature, layer) {
+        layer.bindPopup(feature.properties.name);
+      }
+    });
+    var map = L.map('cupcake-map').fitBounds(geojson.getBounds());
+    cupcakeTiles.addTo(map);
+    geojson.addTo(map);
+  });
+  </script>
+</body>
 </html>

@@ -1,0 +1,13 @@
+<html>
+ geo requests (<%= geos.length %> items)
+ <table>
+  <% for(var i=0; i<geos.length; i++) {%>
+   <% if( typeof geos[i].content.lat != 'undefined' ) {  %> 
+   <tr>
+     <td><%= geos[i].content.lat %></td>
+     <td><%= geos[i].content.lng %></td>
+   </tr>
+   <% } %>
+ <% } %>
+</table>
+</html>
